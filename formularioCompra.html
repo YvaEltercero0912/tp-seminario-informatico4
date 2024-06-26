@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Compra</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #020003;
+    color: rgb(255, 255, 255);
+}
+*{
+    font-family: "Mukta", sans-serif;
+    font-weight: 800;
+}
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #020003;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: grid;
+            gap: 10px;
+        }
+        form label {
+            font-weight: bold;
+        }
+        form select,
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        form button:hover {
+            background-color: #555;
+        }
+        #successMessage {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f8f8fd;
+    border-bottom: 1px solid #ff0000;
+}
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="logo"><a href="index.html"><img class="log1" src="img/WhatsApp_Image_2024-06-11_at_14.52.24-removebg-preview.png" alt=""></a></div>
+    <nav class="nav">
+     
+        </div>
+    </nav>
+</header>
+
+<main class="container">
+    <h1>Formulario de Compra</h1>
+    <form id="purchaseForm" onsubmit="return false;">
+        <label for="paymentMethod">Método de Pago:</label>
+        <select id="paymentMethod" name="paymentMethod">
+            <option value="efectivo">Efectivo</option>
+            <option value="transferencia">Transferencia</option>
+            <option value="debito">Tarjeta de Débito</option>
+            <option value="credito">Tarjeta de Crédito</option>
+            <option value="paypal">PayPal</option>
+        </select>
+        <label for="province">Provincia:</label>
+        <input type="text" id="province" name="province" required>
+        <label for="city">Ciudad:</label>
+        <input type="text" id="city" name="city" required>
+        <label for="postalCode">Código Postal:</label>
+        <input type="number" id="postalCode" name="postalCode" required>
+        <label for="address">Dirección:</label>
+        <textarea id="address" name="address" rows="4" required></textarea>
+        <button id="checkoutButton" onclick="checkout()">Finalizar Compra</button>
+    </form>
+    <div id="successMessage"></div>
+</main>
+<div class="footer">
+    <div class="footeritem">
+        <a class="items" href="">Contacto</a>
+        <a class="items" href="">Sobre nosotros</a>
+        <a class="items" href="">Soporte</a>
+        <a class="items" href="">Términos y condiciones</a>
+    </div>
+</div>
+
+<script src="scripts.js"></script>
+<script>
+    function checkout() {
+        // Aquí podrías implementar la lógica para procesar la compra
+        // Por simplicidad, mostraremos solo un mensaje de éxito
+
+        const successMessage = document.getElementById('successMessage');
+        successMessage.innerHTML = '<p>Su compra fue realizada con éxito.</p>';
+        successMessage.style.display = 'block';
+    }
+
+    // Función para mostrar u ocultar elementos según el estado de inicio de sesión
+    function updateUI() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        const username = localStorage.getItem('username');
+        
+        if (isLoggedIn) {
+            document.getElementById('loginButton').style.display = 'none';
+            document.getElementById('registerButton').style.display = 'none';
+            document.getElementById('userMenu').style.display = 'block';
+            document.getElementById('welcomeMessage').innerText = `Bienvenido, ${username}`;
+        } else {
+            document.getElementById('loginButton').style.display = 'block';
+            document.getElementById('registerButton').style.display = 'block';
+            document.getElementById('userMenu').style.display = 'none';
+        }
+    }
+
+    updateUI();
+
+    document.getElementById('logoutButton').addEventListener('click', function() {
+        localStorage.setItem('isLoggedIn', false);
+        localStorage.removeItem('username');
+        updateUI();
+    });
+</script>
+
+</body>
+</html>

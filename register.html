@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="register.css">
+    
+</head>
+<body>
+    
+    <header class="header">
+        <div class="logo"><a href="index.html"><img class="log1" src="img/WhatsApp_Image_2024-06-11_at_14.52.24-removebg-preview.png" alt=""></a></div>
+    </header>
+    <div class="modal">
+        <h2>Registrarse</h2>
+        <form id="registerForm">
+            <div>
+                <label for="registerUsername">Usuario</label>
+                <input type="text" id="registerUsername" required>
+            </div>
+            <div>
+                <label for="registerEmail">Correo Electrónico</label>
+                <input type="email" id="registerEmail" required>
+            </div>
+            <div>
+                <label for="registerPassword">Contraseña</label>
+                <input type="password" id="registerPassword" required>
+            </div>
+            <button type="submit">Registrarse</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <div class="footeritem">
+            <a class="items" href="">Contacto</a>
+            <a class="items" href="">Sobre nosotros</a>
+            <a class="items" href="">Soporte</a>
+            <a class="items" href="">Términos y condiciones</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('registerUsername').value;
+            
+            // Simula el registro y guarda el estado en localStorage
+            localStorage.setItem('username', username);
+            localStorage.setItem('isLoggedIn', true);
+            
+            // Redirige a la página principal
+            window.location.href = 'index.html';
+        });
+    </script>
+
+</body>
+</html>

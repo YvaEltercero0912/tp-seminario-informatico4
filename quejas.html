@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Quejas</title>
+    <link rel="stylesheet" href="quejas.css">
+    <script src="scripts.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo"><a href="index.html"><img class="log1" src="img/WhatsApp_Image_2024-06-11_at_14.52.24-removebg-preview.png" alt=""></a></div>
+        <nav class="nav">
+            <!-- Agrega aquí cualquier contenido adicional para la navegación si es necesario -->
+        </nav>
+    </header>
+
+    <main>
+        <h1>Formulario de Quejas</h1>
+        <form id="complaintForm">
+            <div>
+                <label for="complaintUsername">Usuario</label>
+                <input type="text" id="complaintUsername" required>
+            </div>
+            <div>
+                <label for="complaintEmail">Correo Electrónico</label>
+                <input type="email" id="complaintEmail" required>
+            </div>
+            <div>
+                <label for="complaintDetails">Detalles de la Queja</label>
+                <textarea id="complaintDetails" required></textarea>
+            </div>
+            <button type="submit">Enviar Queja</button>
+        </form>
+        <div id="successMessage" style="display: none; color: green; margin-top: 10px;">
+            Su formulario fue enviado al gerente y será analizado.
+        </div>
+    </main>
+
+    <div class="footer">
+        <div class="footeritem">
+            <a class="items" href="">Contacto</a>
+            <a class="items" href="">Sobre nosotros</a>
+            <a class="items" href="">Soporte</a>
+            <a class="items" href="">Términos y condiciones</a>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
